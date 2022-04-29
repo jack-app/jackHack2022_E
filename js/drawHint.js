@@ -7,6 +7,9 @@
 // 言葉ごとに重ねる必要がありそう（CSSで後で重ねる）
 // https://qiita.com/TR246/items/4b84deadb26f1c450722
 
+var hintText = ["視覚を使う", "聴覚を使う", "味覚・嗅覚を使う"];
+var hintKind = ["視覚", "聴覚", "味覚・嗅覚"];
+
 function drawText(canvasid, text) {
   var theCanvas = document.getElementById(canvasid);
   var xpos = Math.floor(theCanvas.width * Math.random() * 0.4);
@@ -31,12 +34,18 @@ function drawText(canvasid, text) {
 
 function drawHint() {
   var hintButton = document.getElementById("hint");
-  var kind = hintButton.innerHTML;
-  if (kind === "聴覚を使う") {
+  var usedHint = document.getElementById("usedHint");
+  var buttonText = hintButton.innerHTML;
+  if (buttonText === hintText[0]) {
+    hintButton.innerHTML = hintText[1];
+    usedHint.innerHTML += hintKind[0] + ", ";
+  } else if (buttonText === hintText[1]) {
     drawText("canvas1", "ふわふわ");
-    hintButton.innerHTML = "味覚・嗅覚を使う";
-  } else if (kind === "味覚・嗅覚を使う") {
+    hintButton.innerHTML = hintText[2];
+    usedHint.innerHTML += hintKind[1] + ", ";
+  } else if (buttonText === hintText[2]) {
     drawText("canvas2", "甘い");
+    usedHint.innerHTML += hintKind[2];
     hintButton.remove();
   }
 }
