@@ -15,14 +15,17 @@ function drawText(canvasid, text) {
 
   function drawScreen() {
     context.clearRect(0, 0, theCanvas.width, theCanvas.height);
-    y += 2;
-    context.fillStyle = "#000000";
+    var opacity = Math.sin(((alpha % 100) * Math.PI) / 100);
+    context.fillStyle = "rgba(0, 0, 0, " + opacity + ")";
     context.font = "20px _sans";
     context.textBaseline = "top";
     context.fillText(text, xpos, ypos - (y % 100));
+    y += 2;
+    alpha += 2;
   }
 
   var y = 0;
+  var alpha = 0;
   setInterval(drawScreen, 100);
 }
 
