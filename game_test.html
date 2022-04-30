@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>ゲーム画面</title>
+    <script src="./js/drawHint.js"></script>
+    <link rel="stylesheet" href="./css/canvas_layer.css" />
+    <link rel="stylesheet" href="./css/help_modal.css" />
+  </head>
+  <body>
+    <div class="mainPage">
+      <div class="header">
+        <div class="score" id="score">得点:100pt</div>
+        <div class="usedHint" id="usedHint">使った感覚：</div>
+
+        <button id="modalOpen" class="button" onclick="modalOpen()">？</button>
+        <div id="easyModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1>遊び方</h1>
+              <span class="modalClose" onclick="modalClose()">×</span>
+            </div>
+            <div class="modal-body">
+              <p>箱の中身を当てるゲームだよ</p>
+              <p>
+                カーソルで箱をなぞってみたり、ヒントの五感を駆使して挑戦しよう
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bodyPage">
+        <div class="canvas-wrapper">
+          <canvas id="canvas1" width="300" height="240"></canvas>
+          <canvas id="canvas2" width="300" height="240"></canvas>
+        </div>
+        <div class="selectButton">
+          <button id="1">選択肢1</button>
+          <button id="2">選択肢2</button>
+          <button id="3">選択肢3</button>
+          <button id="4">選択肢4</button>
+        </div>
+        <div class="hintButton">
+          <button id="hint" onClick="drawHint()">視覚を使う</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/helpModal.js"></script>
+  </body>
+</html>
