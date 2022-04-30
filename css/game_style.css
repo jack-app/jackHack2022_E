@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  font-size: 30px;
+}
+
+/* .score {
+  float: left;
+} */
+
+.selectButton {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.hintButton {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 15px;
+}

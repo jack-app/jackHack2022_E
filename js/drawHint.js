@@ -7,8 +7,13 @@
 // 言葉ごとに重ねる必要がありそう（CSSで後で重ねる）
 // https://qiita.com/TR246/items/4b84deadb26f1c450722
 
-var hintText = ["視覚を使う", "聴覚を使う", "味覚・嗅覚を使う"];
+var hintText = [
+  "視覚を使う(-20pt)",
+  "聴覚を使う(-20pt)",
+  "味覚・嗅覚を使う(-20pt)",
+];
 var hintKind = ["視覚", "聴覚", "味覚・嗅覚"];
+var hints = { apple: ["シャクシャク", "甘い"] };
 
 function drawText(canvasid, text) {
   var theCanvas = document.getElementById(canvasid);
@@ -32,19 +37,26 @@ function drawText(canvasid, text) {
   setInterval(drawScreen, 100);
 }
 
-function drawHint() {
+function drawHint(ans) {
   var hintButton = document.getElementById("hint");
   var usedHint = document.getElementById("usedHint");
   var buttonText = hintButton.innerHTML;
+  var score = document.getElementById("score");
+  var scoreText = score.innerHTML;
+  var score_num = scoreText.slice(3, -2) - 0;
+  score_num -= 20;
+  score.innerHTML =
+    scoreText.slice(0, 3) + score_num.toString() + scoreText.slice(-2);
+
   if (buttonText === hintText[0]) {
     hintButton.innerHTML = hintText[1];
     usedHint.innerHTML += hintKind[0] + ", ";
   } else if (buttonText === hintText[1]) {
-    drawText("canvas1", "ふわふわ");
+    drawText("canvas1", hints[ans][0]);
     hintButton.innerHTML = hintText[2];
     usedHint.innerHTML += hintKind[1] + ", ";
   } else if (buttonText === hintText[2]) {
-    drawText("canvas2", "甘い");
+    drawText("canvas2", hints[ans][1]);
     usedHint.innerHTML += hintKind[2];
     hintButton.remove();
   }
