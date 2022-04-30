@@ -1,3 +1,57 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.resultletter {
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table th:first-child {
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child {
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(#829ebc, #225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td {
+  font-size: 30px;
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top: none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+.totalscore {
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+}
 *,
 *:before,
 *:after {
@@ -14,12 +68,11 @@ html {
 .btn,
 a.btn,
 button.btn {
-  font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.5;
+  padding: 1rem 1rem;
   position: relative;
   display: inline-block;
-  padding: 1rem 4rem;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -48,4 +101,19 @@ a.btn--orange:hover {
 a.btn--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+.startbutton {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+.resultbutton {
+  display: flex;
+  justify-content: center;
+}
+.resultbutton .smallbutton {
+  display: inline-block;
+  font-size: 40px;
+  margin: 15px;
 }
