@@ -47,6 +47,12 @@ function RouteSetting(req, res) {
       res.end(pngFile);
       break;
 
+    case /\.ico$/.test(req.url):
+      res.writeHead(200, {'Content-Type': "image/x-icon"});
+      const icoFile = fs.readFileSync('.'+req.url);
+      res.end(icoFile);
+      break;
+
     default:
       res.setHeader('Content-Type', 'text/plain; charset=utf-8');
       console.log(req.url);
