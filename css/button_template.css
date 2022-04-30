@@ -1,0 +1,73 @@
+/*まずはお決まりのボックスサイズ算出をborer-boxに */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%; /*rem算出をしやすくするために*/
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-weight: 600;
+  line-height: 1.6;
+  position: relative;
+  display: inline-block;
+  padding: 0.1rem 2.5rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+.btn--gray,
+a.btn--gray {
+  color: #02010c;
+  background-color: #b1afa0;
+}
+.btn--gray:hover,
+a.btn--gray:hover {
+  color: #02010c;
+  background: #c4c3ba;
+}
+
+.btn--red,
+a.btn--red {
+  color: #fff;
+  background-color: #db3d36;
+}
+.btn--red:hover,
+a.btn--red:hover {
+  color: #fff;
+  background: #e31628;
+}
+
+a.btn--radius {
+  border-radius: 100vh;
+}
