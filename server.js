@@ -1,13 +1,6 @@
 const http = require('http');
 const fs = require('fs');
-const url = require('url');
-
-const indexPage  = fs.readFileSync('./index.html', 'UTF-8');
-const mainPage   = fs.readFileSync('./main.html', 'UTF-8');
-const mainCss    = fs.readFileSync('./css/main.css', 'UTF-8');
-const mouse_stalserJs = fs.readFileSync('./js/mouse_stalker.js', 'UTF-8');
-const appleFig2ch  = fs.readFileSync('./src/apple2ch.png');
-
+const { url } = require('inspector');
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -19,39 +12,44 @@ server.listen(port, hostname, () => {
 });
 
 function RouteSetting(req, res) {
-  switch (req.url) {
-    case '/':
-    case '/index.html':
+  switch (true) {
+    case '/' === req.url:
       res.writeHead(200, {'Content-Type': 'text/html'});
+      const indexPage  = fs.readFileSync('./index.html', 'UTF-8');
       res.write(indexPage);
       res.end();
       break;
-  
-    case '/main.html':
+
+    case /\.html$/.test(req.url):
       res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(mainPage);
+      const htmlFile  = fs.readFileSync('.'+req.url, 'UTF-8');
+      res.write(htmlFile);
       res.end();
       break;
     
-    case '/css/main.css':
+    case /\.css$/.test(req.url):
       res.writeHead(200, {'Content-Type': 'text/css'});
-      res.write(mainCss);
+      const cssFile  = fs.readFileSync('.'+req.url, 'UTF-8');
+      res.write(cssFile);
       res.end();
       break;
 
-    case '/js/mouse_stalker.js':
+    case /\.js$/.test(req.url):
       res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.write(mouse_stalserJs);
+      const jsFile = fs.readFileSync('.'+req.url, 'UTF-8');
+      res.write(jsFile);
       res.end();
       break;
     
-    case '/src/apple2ch.png':
+    case /\.png$/.test(req.url):
       res.writeHead(200, {'Content-Type': "image/png"});
-      res.end(appleFig2ch);
+      const pngFile = fs.readFileSync('.'+req.url, 'UTF-8');
+      res.end(pngFile);
       break;
 
     default:
       res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+      console.log(req.url);
       res.write('お探しのページは見つかりません。');
       res.end();
       break;
