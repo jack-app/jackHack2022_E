@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Virtual Sense</title>
     <script src="./js/mouse_stalker.js"></script>
-    <link rel ="stylesheet" type="text/css" href="./css/main.css"></link>
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <link rel="stylesheet" href="./css/button_template.css" />
     <link rel="stylesheet" href="./css/canvas_layer.css" />
     <link rel="stylesheet" href="./css/modal.css" />
@@ -15,10 +15,10 @@
     <div id="stalker"></div>
     <div class="mainPage">
       <div class="header">
-        <div class="score">
-          <div id="score">得点:100pt</div>
+        <div class="score-wrapper">
+          <p>得点：<span id="score">0</span>pt</p>
         </div>
-        <div class="usedHint" id="usedHint">使える感覚：触覚</div>
+        <div>思い出した感覚：<span id="usedHint"></span></div>
         <a
           id="modalOpen"
           class="btn btn--orange btn--radius"
@@ -44,10 +44,14 @@
 
       <div class="canvas-wrapper">
         <canvas id="sight" width="700px" height="350px"></canvas>
-        <canvas id="mask" class="maskCanvas" width="700px" height="350px"></canvas>
+        <canvas
+          id="mask"
+          class="maskCanvas"
+          width="700px"
+          height="350px"
+        ></canvas>
         <canvas id="canvas1" width="700px" height="350px"></canvas>
         <canvas id="canvas2" width="700px" height="350px"></canvas>
-
       </div>
 
       <div class="selectButton">
@@ -61,7 +65,7 @@
         <div class="modal-content">
           <div class="modal-body">
             <img src="./static/correct.png" width="200px" height="200px" />
-            <p id="correct">正解！</p>
+            <p id="correct">正解！ <b>+100pt</b></p>
             <a class="btn btn--gray" href="./result.html">次へ</a>
           </div>
         </div>
@@ -71,8 +75,8 @@
         <div class="modal-content">
           <div class="modal-body">
             <img src="./static/wrong.png" width="200px" height="200px" />
-            <p>不正解！-40pt</p>
-            <a class="btn btn--gray">戻る</a>
+            <p>不正解！ <b>-40pt</b></p>
+            <a class="btn btn--gray" id="wrongModalClose">戻る</a>
           </div>
         </div>
       </div>
