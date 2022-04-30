@@ -15,11 +15,11 @@ html {
 .btn,
 a.btn,
 button.btn {
-  font-weight: 700;
-  line-height: 1.5;
+  font-weight: 600;
+  line-height: 1.6;
   position: relative;
   display: inline-block;
-  padding: 0.1rem 3rem;
+  padding: 0.1rem 2.5rem;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;

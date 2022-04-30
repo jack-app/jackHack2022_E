@@ -21,12 +21,14 @@ function judge() {
   var score = document.getElementById("score");
   var scoreText = score.innerHTML;
   var score_num = scoreText.slice(3, -2) - 0;
-  if (this.name === "りんご") {
+  if (this.name === problem["ans"]) {
     correctModal.style.display = "block";
     var plusScore = document.getElementById("correct");
-    if (score_num >= 0)
+    if (score_num >= 0) {
       plusScore.innerHTML = "正解！+" + score_num.toString() + "pt";
-    else plusScore.innerHTML = "正解！" + score_num.toString() + "pt";
+    } else {
+      plusScore.innerHTML = "正解！" + score_num.toString() + "pt";
+    }
   } else {
     wrongModal.style.display = "block";
     score_num -= 40;
