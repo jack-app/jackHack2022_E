@@ -43,7 +43,7 @@ function RouteSetting(req, res) {
     
     case /\.png$/.test(req.url):
       res.writeHead(200, {'Content-Type': "image/png"});
-      const pngFile = fs.readFileSync('.'+req.url, 'UTF-8');
+      const pngFile = fs.readFileSync('.'+req.url);
       res.end(pngFile);
       break;
 
