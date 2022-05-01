@@ -1,10 +1,6 @@
 // 正誤判定する
 // ページごとに正解を決めておいて、それに従って制御する以外なさそう
 
-const b1 = document.getElementById("b1");
-const b2 = document.getElementById("b2");
-const b3 = document.getElementById("b3");
-const b4 = document.getElementById("b4");
 const buttons = [b1, b2, b3, b4];
 
 const correctModal = document.getElementById("correctModal");
@@ -26,9 +22,9 @@ b3.addEventListener("click", { name: b3.innerHTML, handleEvent: judge });
 b4.addEventListener("click", { name: b4.innerHTML, handleEvent: judge });
 
 function judge() {
-  if (this.name === problem["ans"]) {
+  if (this.name === problem.ans) {
     correctModal.style.display = "block";
-    localStorage.setItem("totalScoreNum", scoreNum);
+    localStorage.setItem("problemNum", parseInt(problemNum) + 1);
   } else {
     wrongModal.style.display = "block";
     scoreNum -= 40;
@@ -61,4 +57,16 @@ function wrongOutside(e) {
 const wrongModalClose = document.getElementById("wrongModalClose");
 wrongModalClose.addEventListener("click", () => {
   wrongModal.style.display = "none";
+});
+
+const nextProblem = document.getElementById("nextProblem");
+nextProblem.addEventListener("click", () => {
+  if (problemNum == problems.length - 1) {
+    localStorage.setItem("secondScoreNum", scoreNum);
+    window.location.href = "../result.html";
+  } else {
+    localStorage.setItem("firstScoreNum", scoreNum);
+    localStorage.setItem("scoreNum", 100);
+    window.location.reload();
+  }
 });

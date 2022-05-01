@@ -52,11 +52,11 @@ function useHint(ans) {
     hintButton.innerHTML = hintText[1];
     usedHint.innerHTML += hintKind[0];
   } else if (buttonText === hintText[1]) {
-    drawHintText("canvas1", problem["sound"]);
+    drawHintText("canvas1", problem.sound);
     hintButton.innerHTML = hintText[2];
     usedHint.innerHTML += ", " + hintKind[1];
   } else if (buttonText === hintText[2]) {
-    drawHintText("canvas2", problem["taste"]);
+    drawHintText("canvas2", problem.taste);
     usedHint.innerHTML += ", " + hintKind[2];
     hintButton.style.display = "none";
   }

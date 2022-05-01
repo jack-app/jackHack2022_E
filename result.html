@@ -15,17 +15,17 @@
           <tr>
             <th></th>
             <th>第１問</th>
-            <!-- <th>第２問</th>
-            <th>第３問</th> -->
+            <th>第２問</th>
+            <!-- <th>第３問</th> -->
           </tr>
           <tr>
             <td>得点</td>
-            <td><span id="total-score"></span>pt</td>
-            <!-- <td>100pt</td>
-            <td>40pt</td> -->
+            <td><span id="first-score"></span>pt</td>
+            <td><span id="second-score"></span>pt</td>
+            <!-- <td>40pt</td> -->
           </tr>
         </table>
-        <!-- <p class="totalscore">合計得点：<span id="total-score"></span>pt</p> -->
+        <p class="totalscore">合計得点：<span id="total-score"></span>pt</p>
         <div class="resultbutton">
           <div class="smallbutton">
             <a
@@ -48,14 +48,22 @@
       </div>
     </div>
     <script>
+      let firstScore = document.getElementById("first-score");
+      let firstScoreNum = localStorage.getItem("firstScoreNum");
+      firstScoreNum = firstScoreNum ? firstScoreNum : 0;
+      firstScore.innerHTML = firstScoreNum.toString();
+
+      let secondScore = document.getElementById("second-score");
+      let secondScoreNum = localStorage.getItem("secondScoreNum");
+      secondScoreNum = secondScoreNum ? secondScoreNum : 0;
+      secondScore.innerHTML = secondScoreNum.toString();
+
       let totalScore = document.getElementById("total-score");
-      let totalScoreNum = localStorage.getItem("totalScoreNum");
-      totalScoreNum = totalScoreNum ? totalScoreNum : 0;
+      const totalScoreNum = parseInt(firstScoreNum) + parseInt(secondScoreNum);
       totalScore.innerHTML = totalScoreNum.toString();
 
       window.addEventListener("beforeunload", function (e) {
         /** 更新される直前の処理 */
-        console.log("よばれたで");
         localStorage.clear();
       });
     </script>
