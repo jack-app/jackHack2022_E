@@ -1,10 +1,10 @@
-/* .logo {
-  display: flex;
-  justify-content: center;
-} */
-
+.logo {
+  /* display: flex;
+  justify-content: center; */
+}
 .logo > img {
-  height: 50vh;
+  height: 40vh;
+  image-rendering: -webkit-optimize-contrast;
 }
 .resultletter {
   font-size: 70px;
@@ -95,13 +95,13 @@ button.btn {
 }
 a.btn--orange {
   color: #fff;
-  background-color: #eb6100;
+  background-color: #ec4451;
   border-bottom: 5px solid #b84c00;
 }
 a.btn--orange:hover {
   margin-top: 3px;
   color: #fff;
-  background: #f56500;
+  background: #f85461;
   border-bottom: 2px solid #b84c00;
 }
 a.btn--shadow {
