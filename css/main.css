@@ -5,7 +5,7 @@
   transform: translate(0,0);
   transition-timing-function: ease-out;
   z-index: 999;
-  background: rgba(255, 0, 0, 0.226);
+  background: rgba(236, 68, 81, 0.226);
   top: -8px   ;     /*座標調節（カーソル位置と円の中心を合わせる）*/
   left: -8px  ;    /*座標調節（カーソル位置と円の中心を合わせる）*/
   width: 16px  ;   /*マウスストーカーの直径*/

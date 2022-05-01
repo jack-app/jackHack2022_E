@@ -66,7 +66,7 @@ function stalkerMove(e) {
     if (stalker.classList.contains("touch")) {
       stalker.classList.toggle("touch");
     }
-    stalker.style.background = "rgba(255, 0, 0, 0.226)"
+    stalker.style.background = "rgba(236, 68, 81, 0.226)"
     dx = e.movementX;
     dy = e.movementY;
   } else {//touch
@@ -83,7 +83,7 @@ function stalkerMove(e) {
       ',' + colordata[2] + ',' + 1 + ')';
       stalker.style.background =  rgba;
     }else{
-      stalker.style.background = "rgba(255, 0, 0, 0.726)";
+      stalker.style.background = "rgb(236, 68, 81)";
     }
     let dot = e.movementX * tangentX + e.movementY * tangentY;
     dx = tangentX * dot;
@@ -102,6 +102,19 @@ function setImg() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   img.onload = function () {
     ctx.drawImage(img, 185, 10, 330, 330);
+    img.style.display = "none";
+  };
+}
+
+function setOriImg() {
+  let img = new Image();
+  img.src = "src/apple.png";
+  let canvas = document.getElementById("colorPick");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  img.onload = function () {
+    ctx.drawImage(img, 182, 7, 336, 336);
     img.style.display = "none";
   };
 }
