@@ -35,37 +35,58 @@ button.btn {
   border-radius: 0.5rem;
 }
 
-.btn--orange,
 a.btn--orange {
   color: #fff;
   background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
 }
-.btn--orange:hover,
 a.btn--orange:hover {
+  margin-top: 3px;
   color: #fff;
   background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .btn--gray,
 a.btn--gray {
   color: #02010c;
-  background-color: #b1afa0;
+  background-color: #c9caca;
+  border-bottom: 5px solid #646766;
 }
 .btn--gray:hover,
 a.btn--gray:hover {
   color: #02010c;
   background: #c4c3ba;
+  border-bottom: 2px solid #646766;
 }
 
 .btn--red,
 a.btn--red {
   color: #fff;
-  background-color: #db3d36;
+  background-color: #ec4451;
+  border-bottom: 5px solid #b84c00;
 }
 .btn--red:hover,
 a.btn--red:hover {
   color: #fff;
-  background: #e31628;
+  background: #f85461;
+  border-bottom: 2px solid #b84c00;
+}
+
+.btn--redh,
+a.btn--redh {
+  color: #fff;
+  background-color: #ec4451;
+}
+.btn--redh:hover,
+a.btn--redh:hover {
+  color: #fff;
+  background: #f85461;
 }
 
 a.btn--radius {

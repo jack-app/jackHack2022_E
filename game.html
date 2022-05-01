@@ -12,17 +12,14 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <div id="stalker" class="stalker"></div>
+    <div id="stalker" class="stalker></div>
     <div class="mainPage">
       <div class="header">
         <div class="score-wrapper">
-          <p>得点：<span id="score">0</span>pt</p>
+          <p>得点：<span id="score">100</span>pt</p>
         </div>
         <div>思い出した感覚：<span id="usedHint"></span></div>
-        <a
-          id="modalOpen"
-          class="btn btn--orange btn--radius"
-          onclick="modalOpen()"
+        <a id="modalOpen" class="btn btn--red btn--radius" onclick="modalOpen()"
           >遊び方</a
         >
       </div>
@@ -33,11 +30,15 @@
             <h1>遊び方</h1>
             <span class="modalClose" onclick="modalClose()"></span>
           </div>
-          <div class="modal-body">
-            <p>箱の中身を当てるゲームだよ</p>
+          <div class="modal-body-help">
+            <p>五感を駆使して、隠されている物体が何かを当てるゲームです。</p>
             <p>
-              カーソルで箱をなぞってみたり、ヒントの五感を駆使して挑戦しよう
+              最初は触覚だけを持っています。画面をなぞると輪郭が見えてくるはずです。
             </p>
+            <p>ヒントを使うと他の感覚を思い出すこともできます。</p>
+            <p>・視覚：カーソルの位置の色が分かるようになる</p>
+            <p>・聴覚：関連する擬音語が分かるようになる</p>
+            <p>・味覚・嗅覚：味や匂いの情報が分かるようになる</p>
           </div>
         </div>
       </div>
@@ -56,17 +57,17 @@
       </div>
 
       <div class="selectButton">
-        <a id="b1" class="btn btn--gray">ぶどう</a>
-        <a id="b2" class="btn btn--gray">もも</a>
-        <a id="b3" class="btn btn--gray">バナナ</a>
-        <a id="b4" class="btn btn--gray">りんご</a>
+        <a id="b1" class="btn btn--gray btn--shadow">ぶどう</a>
+        <a id="b2" class="btn btn--gray btn--shadow">もも</a>
+        <a id="b3" class="btn btn--gray btn--shadow">バナナ</a>
+        <a id="b4" class="btn btn--gray btn--shadow">りんご</a>
       </div>
 
       <div id="correctModal" class="modal">
         <div class="modal-content">
           <div class="modal-body">
             <img src="./static/correct.png" width="200px" height="200px" />
-            <p id="correct">正解！ <b>+100pt</b></p>
+            <p id="correct">正解！</p>
             <a class="btn btn--gray" href="./result.html">次へ</a>
           </div>
         </div>
@@ -83,8 +84,11 @@
       </div>
 
       <div class="hintButton">
-        <a id="hint" class="btn btn--red" onclick="useHint('apple')"
-          >視覚を使う(-20pt)</a
+        <a
+          id="hint"
+          class="btn btn--redh btn--shadow"
+          onclick="useHint('apple')"
+          >視覚を思い出す(-20pt)</a
         >
       </div>
     </div>

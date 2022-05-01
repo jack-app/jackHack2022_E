@@ -44,11 +44,13 @@ function stalkerMove(e) {
 
   let ctx = canvas.getContext("2d");
   let color = ctx.getImageData(
+
     Math.min(Math.max(x - 1 + radius, 0), canvas.clientWidth - 1),
     Math.min(Math.max(y - 1 + radius, 0), canvas.clientHeight - 3),
     3,
     3
   );
+
   let data = color.data;
   let tangentX, tangentY;
 
@@ -86,6 +88,7 @@ function stalkerMove(e) {
     }else{
       stalker.style.background = "rgb(236, 68, 81)";
     }
+
     let dot = e.movementX * tangentX + e.movementY * tangentY;
     dx = tangentX * dot;
     dy = tangentY * dot;

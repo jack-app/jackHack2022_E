@@ -8,9 +8,9 @@
 // https://qiita.com/TR246/items/4b84deadb26f1c450722
 
 const hintText = [
-  "視覚を使う(-20pt)",
-  "聴覚を使う(-20pt)",
-  "味覚・嗅覚を使う(-20pt)",
+  "視覚を思い出す(-20pt)",
+  "聴覚を思い出す(-20pt)",
+  "味覚・嗅覚を思い出す(-20pt)",
 ];
 const hintKind = ["視覚", "聴覚", "味覚・嗅覚"];
 
@@ -50,7 +50,7 @@ function useHint(ans) {
 
   if (buttonText === hintText[0]) {
     hintButton.innerHTML = hintText[1];
-    usedHint.innerHTML += ", " + hintKind[0];
+    usedHint.innerHTML += hintKind[0];
   } else if (buttonText === hintText[1]) {
     drawHintText("canvas1", problem["sound"]);
     hintButton.innerHTML = hintText[2];
@@ -58,6 +58,15 @@ function useHint(ans) {
   } else if (buttonText === hintText[2]) {
     drawHintText("canvas2", problem["taste"]);
     usedHint.innerHTML += ", " + hintKind[2];
-    hintButton.remove();
+    hintButton.style.display = "none";
+  }
+}
+
+function got_vis() {
+  var buttonText = hintButton.innerHTML;
+  if (buttonText === hintText[0]) {
+    return false;
+  } else {
+    return true;
   }
 }
