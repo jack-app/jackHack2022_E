@@ -28,8 +28,11 @@ function mouseStalker() {
 
 //mousemoveしたときのstokerの位置更新
 //表面を触っているときはtouchクラスが付きます
+//色の更新も同時にやっちゃってます
 function stalkerMove(e) {
   //stalkerの相対位置を取得
+  hintButton.innerHTML != hintText[0]
+  let colorFrag = true;//視覚のヒントが出ているか
   let canvas = document.getElementById("sight");
   let canvasPos = canvas.getBoundingClientRect();
   let stalker = document.getElementById("stalker");
@@ -40,13 +43,15 @@ function stalkerMove(e) {
   let radius = stalker.clientWidth / 2;
 
   let ctx = canvas.getContext("2d");
-  let pixel = ctx.getImageData(
+  let color = ctx.getImageData(
+
     Math.min(Math.max(x - 1 + radius, 0), canvas.clientWidth - 1),
     Math.min(Math.max(y - 1 + radius, 0), canvas.clientHeight - 3),
     3,
     3
   );
-  let data = pixel.data;
+
+  let data = color.data;
   let tangentX, tangentY;
 
   //r成分だけ使ってソーベルフィルタでエッジ検出
@@ -60,16 +65,30 @@ function stalkerMove(e) {
     tangentY /= -Math.sqrt(r);
   }
 
-  if (r < 65536) {
+  if (r < 65536) {//触ってない
     if (stalker.classList.contains("touch")) {
       stalker.classList.toggle("touch");
     }
+    stalker.style.background = "rgba(236, 68, 81, 0.226)"
     dx = e.movementX;
     dy = e.movementY;
-  } else {
+  } else {//touch
     if (!stalker.classList.contains("touch")) {
       stalker.classList.toggle("touch");
     }
+    if (colorFrag){
+      let colorcanvas = document.getElementById("colorPick");
+      let colorctx = colorcanvas.getContext("2d");
+      let colorpixel = colorctx.getImageData(x + radius,y + radius,1,1);
+      let colordata = colorpixel.data;
+
+      let rgba = 'rgba(' + colordata[0] + ',' + colordata[1] +
+      ',' + colordata[2] + ',' + 1 + ')';
+      stalker.style.background =  rgba;
+    }else{
+      stalker.style.background = "rgb(236, 68, 81)";
+    }
+
     let dot = e.movementX * tangentX + e.movementY * tangentY;
     dx = tangentX * dot;
     dy = tangentY * dot;
@@ -87,6 +106,19 @@ function setImg() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   img.onload = function () {
     ctx.drawImage(img, 185, 10, 330, 330);
+    img.style.display = "none";
+  };
+}
+
+function setOriImg() {
+  let img = new Image();
+  img.src = "src/apple.png";
+  let canvas = document.getElementById("colorPick");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  img.onload = function () {
+    ctx.drawImage(img, 182, 7, 336, 336);
     img.style.display = "none";
   };
 }
