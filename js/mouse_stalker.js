@@ -31,7 +31,7 @@ function mouseStalker() {
 //色の更新も同時にやっちゃってます
 function stalkerMove(e) {
   //stalkerの相対位置を取得
-  let colorFrag = hintButton.innerHTML != hintText[0];//視覚のヒントが出ているか
+  let colorFrag = hintButton.innerHTML != hintText[0]; //視覚のヒントが出ているか
   let canvas = document.getElementById("sight");
   let canvasPos = canvas.getBoundingClientRect();
   let stalker = document.getElementById("stalker");
@@ -43,7 +43,6 @@ function stalkerMove(e) {
 
   let ctx = canvas.getContext("2d");
   let color = ctx.getImageData(
-
     Math.min(Math.max(x - 1 + radius, 0), canvas.clientWidth - 1),
     Math.min(Math.max(y - 1 + radius, 0), canvas.clientHeight - 3),
     3,
@@ -64,27 +63,37 @@ function stalkerMove(e) {
     tangentY /= -Math.sqrt(r);
   }
 
-  if (r < 65536) {//触ってない
+  if (r < 65536) {
+    //触ってない
     if (stalker.classList.contains("touch")) {
       stalker.classList.toggle("touch");
     }
-    stalker.style.background = "rgba(236, 68, 81, 0.226)"
+    stalker.style.background = "rgba(236, 68, 81, 0.226)";
     dx = e.movementX;
     dy = e.movementY;
-  } else {//touch
+  } else {
+    //touch
     if (!stalker.classList.contains("touch")) {
       stalker.classList.toggle("touch");
     }
-    if (colorFrag){
+    if (colorFrag) {
       let colorcanvas = document.getElementById("colorPick");
       let colorctx = colorcanvas.getContext("2d");
-      let colorpixel = colorctx.getImageData(x + radius,y + radius,1,1);
+      let colorpixel = colorctx.getImageData(x + radius, y + radius, 1, 1);
       let colordata = colorpixel.data;
 
-      let rgba = 'rgba(' + colordata[0] + ',' + colordata[1] +
-      ',' + colordata[2] + ',' + 1 + ')';
-      stalker.style.background =  rgba;
-    }else{
+      let rgba =
+        "rgba(" +
+        colordata[0] +
+        "," +
+        colordata[1] +
+        "," +
+        colordata[2] +
+        "," +
+        1 +
+        ")";
+      stalker.style.background = rgba;
+    } else {
       stalker.style.background = "rgb(236, 68, 81)";
     }
 
@@ -98,7 +107,7 @@ function stalkerMove(e) {
 //とりあえず表示してるだけ縦横比狂ってます
 function setImg() {
   let img = new Image();
-  img.src = "src/apple2ch.png";
+  img.src = problem.binarizationImage;
   let canvas = document.getElementById("sight");
   let ctx = canvas.getContext("2d");
   ctx.fillStyle = "#fff";
@@ -111,7 +120,7 @@ function setImg() {
 
 function setOriImg() {
   let img = new Image();
-  img.src = "src/apple.png";
+  img.src = problem.image;
   let canvas = document.getElementById("colorPick");
   let ctx = canvas.getContext("2d");
   ctx.fillStyle = "#fff";
