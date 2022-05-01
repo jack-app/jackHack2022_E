@@ -3,7 +3,8 @@
   justify-content: center; */
 }
 .logo > img {
-  height: 50vh;
+  height: 40vh;
+  image-rendering: -webkit-optimize-contrast;
 }
 .resultletter {
   font-size: 70px;
