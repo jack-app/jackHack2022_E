@@ -43,10 +43,10 @@ function useHint(ans) {
   var buttonText = hintButton.innerHTML;
   var score = document.getElementById("score");
   var scoreText = score.innerHTML;
-  var score_num = scoreText.slice(3, -2) - 0;
-  score_num -= 20;
-  score.innerHTML =
-    scoreText.slice(0, 3) + score_num.toString() + scoreText.slice(-2);
+  scoreNum -= 20;
+  localStorage.setItem("scoreNum", scoreNum);
+  console.log(scoreNum);
+  score.innerHTML = scoreNum.toString();
 
   if (buttonText === hintText[0]) {
     hintButton.innerHTML = hintText[1];

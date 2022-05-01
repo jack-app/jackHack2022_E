@@ -10,40 +10,47 @@ const buttons = [b1, b2, b3, b4];
 const correctModal = document.getElementById("correctModal");
 const wrongModal = document.getElementById("wrongModal");
 const correctClose = document.getElementsByClassName("modalClose")[1];
-const wrongClose = document.getElementsByClassName("modalClose")[2];
+
+var score = document.getElementById("score");
+
+// 得点初期化
+let scoreNum = localStorage.getItem("scoreNum");
+scoreNum = scoreNum ? scoreNum : 0;
+localStorage.setItem("scoreNum", scoreNum);
+score.innerHTML = scoreNum.toString();
 
 //ボタンがクリックされた時
 b1.addEventListener("click", { name: b1.innerHTML, handleEvent: judge });
 b2.addEventListener("click", { name: b2.innerHTML, handleEvent: judge });
 b3.addEventListener("click", { name: b3.innerHTML, handleEvent: judge });
 b4.addEventListener("click", { name: b4.innerHTML, handleEvent: judge });
+
 function judge() {
-  var score = document.getElementById("score");
-  var scoreText = score.innerHTML;
-  var score_num = scoreText.slice(3, -2) - 0;
   if (this.name === problem["ans"]) {
     correctModal.style.display = "block";
-    var plusScore = document.getElementById("correct");
-    if (score_num >= 0) {
-      plusScore.innerHTML = "正解！+" + score_num.toString() + "pt";
-    } else {
-      plusScore.innerHTML = "正解！" + score_num.toString() + "pt";
-    }
+    scoreNum += 100;
+    localStorage.setItem("totalScoreNum", scoreNum);
   } else {
     wrongModal.style.display = "block";
-    score_num -= 40;
-    score.innerHTML =
-      scoreText.slice(0, 3) + score_num.toString() + scoreText.slice(-2);
+    scoreNum -= 40;
+    if (scoreNum <= -500) {
+      localStorage.clear();
+      alert("押しすぎだぞ(#´Д｀) 悪い子は最初からやり直しだ！");
+      window.location.href = "../index.html";
+      return;
+    }
   }
+  localStorage.setItem("scoreNum", scoreNum);
+  score.innerHTML = scoreNum.toString();
 }
 
 //モーダルコンテンツ以外がクリックされた時
-addEventListener("click", correctOutside);
-function correctOutside(e) {
-  if (e.target == correctModal) {
-    correctModal.style.display = "none";
-  }
-}
+// addEventListener("click", correctOutside);
+// function correctOutside(e) {
+//   if (e.target == correctModal) {
+//     correctModal.style.display = "none";
+//   }
+// }
 
 addEventListener("click", wrongOutside);
 function wrongOutside(e) {
@@ -51,3 +58,8 @@ function wrongOutside(e) {
     wrongModal.style.display = "none";
   }
 }
+
+const wrongModalClose = document.getElementById("wrongModalClose");
+wrongModalClose.addEventListener("click", () => {
+  wrongModal.style.display = "none";
+});
