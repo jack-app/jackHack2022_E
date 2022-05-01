@@ -1,0 +1,19 @@
+/* canvas重ねるcssだけ書こう */
+
+.canvas-wrapper {
+  width: 700px;
+  height: 360px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  /* padding: 10px; */
+}
+
+.canvas-wrapper canvas {
+  position: absolute;
+  border: 2px solid;
+}
+
+.maskCanvas {
+  background-color: grey;
+}

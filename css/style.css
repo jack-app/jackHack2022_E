@@ -1,17 +1,21 @@
 .logo {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
+  /* display: flex;
+  justify-content: center; */
+}
+.logo > img {
+  height: 50vh;
 }
 .resultletter {
   font-size: 70px;
   display: flex;
   justify-content: center;
+  margin-bottom: 5vh;
 }
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
+  margin-bottom: 5vh;
 }
 
 table th:first-child {
@@ -57,6 +61,7 @@ table td {
 *:after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
+  margin: 0;
 }
 
 html {
@@ -103,10 +108,10 @@ a.btn--shadow {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 .startbutton {
-  font-size: 50px;
+  font-size: 5rem;
   display: flex;
   justify-content: center;
-  margin: 15px;
+  margin: 15px 0 30px;
 }
 .resultbutton {
   display: flex;
@@ -116,4 +121,22 @@ a.btn--shadow {
   display: inline-block;
   font-size: 40px;
   margin: 15px;
+}
+
+/*
+* nineが書いた分のCSS 
+*/
+.container {
+  height: 100vh;
+  width: 100vw;
+  padding: 0 10vw;
+}
+
+.container > .wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
