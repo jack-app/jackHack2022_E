@@ -31,6 +31,7 @@ function mouseStalker() {
 //色の更新も同時にやっちゃってます
 function stalkerMove(e) {
   //stalkerの相対位置を取得
+  hintButton.innerHTML != hintText[0]
   let colorFrag = true;//視覚のヒントが出ているか
   let canvas = document.getElementById("sight");
   let canvasPos = canvas.getBoundingClientRect();
