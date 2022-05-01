@@ -2,6 +2,7 @@
 const problems = [
   {
     ans: "りんご",
+    displayAns: "りんご",
     options: ["りんご", "もも", "バナナ", "ぶどう"],
     sound: "しゃくしゃく",
     taste: "あまい",
@@ -9,20 +10,13 @@ const problems = [
     image: "src/apple.png",
   },
   {
-    ans: "きりん",
-    options: ["きりん", "もも", "バナナ", "ぶどう"],
-    sound: "モォー",
-    taste: "",
-    binarizationImage: "src/kirinpicture2ch.png",
-    image: "src/kirinpicture.png",
-  },
-  {
-    ans: "上から見たプリン",
+    ans: "プリン",
+    displayAns: "上から見たプリン",
     options: ["プリン", "ビリリダマ", "マルマイン", "マリル"],
     sound: "プ～プリ～",
     taste: "もちもち",
     binarizationImage: "src/purin2ch.png",
-    image: "src/apple.png",
+    image: "src/purin.png",
   }
 ];
 console.log(problems.length);
@@ -49,12 +43,17 @@ b2.innerHTML = shuffledOptions[1].toString();
 b3.innerHTML = shuffledOptions[2].toString();
 b4.innerHTML = shuffledOptions[3].toString();
 
+<<<<<<< Updated upstream
 const correctImg = document.getElementById("correctImage");
 var newImg = document.createElement("img");
 newImg.src = problem.image;
 newImg.alt = '正解画像';
 newImg.height = 200;
 correctImg.appendChild(newImg);
+=======
+const display_ans = document.getElementById("displayAns");
+display_ans.innerHTML = problem.displayAns.toString();
+>>>>>>> Stashed changes
 
 window.onload = function () {
   mouseStalker();
