@@ -6,8 +6,33 @@
     <script src="./js/sample.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta property="og:title" content="Virtual Sense" />
+    <meta
+      property="og:description"
+      content="あなたのVirtual Senseを試すゲーム"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://virtual-sense.herokuapp.com/" />
+    <meta
+      property="og:image"
+      content="https://virtual-sense.herokuapp.com/static/logo.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
   </head>
   <body>
+    <script>
+      const twitterShareButton = document.getElementById("twitterShareButton");
+      twitterShareButton.addEventListener("click", () => {
+        const tweetContents = "あなたのVirtual Senseは●●点でした！";
+        const url = "https://virtual-sense.herokuapp.com/";
+        window.open().location.href =
+          "https://twitter.com/share?url=" +
+          url +
+          "&text=" +
+          tweetContents +
+          "&count=none&lang=ja";
+      });
+    </script>
     <div class="container">
       <div class="wrapper">
         <h1 class="resultletter">your Sense</h1>
@@ -39,10 +64,18 @@
               >リトライ</a
             >
           </div>
-          <div class="smallbutton">
-            <a href="" class="btn btn--orange btn--cubic btn--shadow"
-              >つぶやく</a
+          <div class="smallbutton" style="margin: auto 15px">
+            <a
+              class="twitter-share-button"
+              id="twitterShareButton"
+              data-size="large"
+              >Tweet</a
             >
+            <script
+              async
+              src="https://platform.twitter.com/widgets.js"
+              charset="utf-8"
+            ></script>
           </div>
         </div>
       </div>
