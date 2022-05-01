@@ -24,6 +24,10 @@ function drawHintText(canvasid, text) {
   var context = theCanvas.getContext("2d");
 
   function drawScreen() {
+    if (y%200 == 0){
+      xpos = Math.floor(theCanvas.width * Math.random() * 0.7);
+      ypos = Math.floor(theCanvas.height * (0.9 - Math.random() * 0.4));
+    }
     context.clearRect(0, 0, theCanvas.width, theCanvas.height);
     var opacity = Math.sin(((alpha % 200) * Math.PI) / 200);
     context.fillStyle = "rgba(0, 0, 0, " + opacity + ")";

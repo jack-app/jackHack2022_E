@@ -16,6 +16,14 @@ const problems = [
     binarizationImage: "src/kirinpicture2ch.png",
     image: "src/kirinpicture.png",
   },
+  {
+    ans: "上から見たプリン",
+    options: ["プリン", "ビリリダマ", "マルマイン", "マリル"],
+    sound: "プ～プリ～",
+    taste: "もちもち",
+    binarizationImage: "src/purin2ch.png",
+    image: "src/apple.png",
+  }
 ];
 console.log(problems.length);
 
