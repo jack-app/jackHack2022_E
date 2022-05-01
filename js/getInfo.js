@@ -43,17 +43,14 @@ b2.innerHTML = shuffledOptions[1].toString();
 b3.innerHTML = shuffledOptions[2].toString();
 b4.innerHTML = shuffledOptions[3].toString();
 
-<<<<<<< Updated upstream
 const correctImg = document.getElementById("correctImage");
 var newImg = document.createElement("img");
 newImg.src = problem.image;
 newImg.alt = '正解画像';
 newImg.height = 200;
 correctImg.appendChild(newImg);
-=======
 const display_ans = document.getElementById("displayAns");
 display_ans.innerHTML = problem.displayAns.toString();
->>>>>>> Stashed changes
 
 window.onload = function () {
   mouseStalker();
