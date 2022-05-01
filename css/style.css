@@ -1,0 +1,142 @@
+.logo {
+  /* display: flex;
+  justify-content: center; */
+}
+.logo > img {
+  height: 50vh;
+}
+.resultletter {
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 5vh;
+}
+
+table th:first-child {
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child {
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(#829ebc, #225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td {
+  font-size: 30px;
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top: none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+.totalscore {
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%; /*rem算出をしやすくするために*/
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 1rem 1rem;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+}
+a.btn--orange:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+.startbutton {
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 30px;
+}
+.resultbutton {
+  display: flex;
+  justify-content: center;
+}
+.resultbutton .smallbutton {
+  display: inline-block;
+  font-size: 40px;
+  margin: 15px;
+}
+
+/*
+* nineが書いた分のCSS 
+*/
+.container {
+  height: 100vh;
+  width: 100vw;
+  padding: 0 10vw;
+}
+
+.container > .wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

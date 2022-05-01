@@ -2,41 +2,62 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>jackHack2022 チームE</title>
+    <title>Virtual Sense</title>
     <script src="./js/sample.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <div class="resultletter">Result</div>
-    <table>
-      <tr>
-        <th></th>
-        <th>第１問</th>
-        <th>第２問</th>
-        <th>第３問</th>
-      </tr>
-      <tr>
-        <td>得点</td>
-        <td>80pt</td>
-        <td>100pt</td>
-        <td>40pt</td>
-      </tr>
-    </table>>
-      <div class="totalscore">合計得点　220pt</div>
-    <div class="resultbutton">
-    <div class="smallbutton">
-      <a href="" class="btn btn--orange btn--cubic btn--shadow"
-        >タイトルに戻る</a
-      >
-    </div>
-    <div class="smallbutton">
-      <a href="" class="btn btn--orange btn--cubic btn--shadow"
-        >　 リトライ 　</a
-      >
-    </div>
-    <div class="smallbutton" >
-      <a href="" class="btn btn--orange btn--cubic btn--shadow">　 つぶやく 　</div></a>
+    <div class="container">
+      <div class="wrapper">
+        <h1 class="resultletter">your Sense</h1>
+        <table>
+          <tr>
+            <th></th>
+            <th>第１問</th>
+            <!-- <th>第２問</th>
+            <th>第３問</th> -->
+          </tr>
+          <tr>
+            <td>得点</td>
+            <td><span id="total-score"></span>pt</td>
+            <!-- <td>100pt</td>
+            <td>40pt</td> -->
+          </tr>
+        </table>
+        <!-- <p class="totalscore">合計得点：<span id="total-score"></span>pt</p> -->
+        <div class="resultbutton">
+          <div class="smallbutton">
+            <a
+              href="./index.html"
+              class="btn btn--orange btn--cubic btn--shadow"
+              >タイトルに戻る</a
+            >
+          </div>
+          <div class="smallbutton">
+            <a href="./game.html" class="btn btn--orange btn--cubic btn--shadow"
+              >リトライ</a
+            >
+          </div>
+          <div class="smallbutton">
+            <a href="" class="btn btn--orange btn--cubic btn--shadow"
+              >つぶやく</a
+            >
+          </div>
+        </div>
       </div>
     </div>
- </body>
+    <script>
+      let totalScore = document.getElementById("total-score");
+      let totalScoreNum = localStorage.getItem("totalScoreNum");
+      totalScoreNum = totalScoreNum ? totalScoreNum : 0;
+      totalScore.innerHTML = totalScoreNum.toString();
+
+      window.addEventListener("beforeunload", function (e) {
+        /** 更新される直前の処理 */
+        console.log("よばれたで");
+        localStorage.clear();
+      });
+    </script>
+  </body>
 </html>

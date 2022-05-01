@@ -3,11 +3,11 @@ const fs = require("fs");
 const { url } = require("inspector");
 
 const hostname = "127.0.0.1";
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const server = http.createServer(RouteSetting);
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 
@@ -42,14 +42,15 @@ function RouteSetting(req, res) {
       break;
 
     case /\.png$/.test(req.url):
+      res.writeHead(200, { "Content-Type": "image/png" });
       const pngFile = fs.readFileSync("." + req.url);
       res.end(pngFile);
       break;
 
-    case /\.json$/.test(req.url):
-      res.writeHead(200, { "Content-Type": "application/json" });
-      const jsonfile = fs.readFileSync("." + req.url);
-      res.end(jsonfile);
+    case /\.ico$/.test(req.url):
+      res.writeHead(200, { "Content-Type": "image/x-icon" });
+      const icoFile = fs.readFileSync("." + req.url);
+      res.end(icoFile);
       break;
 
     default:
