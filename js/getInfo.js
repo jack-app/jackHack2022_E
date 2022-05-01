@@ -1,16 +1,11 @@
 // サーバに情報を取りに行く
+const problem1 = "りんご,しゃくしゃく,甘い,ぶどう,もも,バナナ,りんご";
+const problem2 = "りんご,しゃくしゃく,甘い,ぶどう,もも,バナナ,りんご";
+const problem3 = "りんご,しゃくしゃく,甘い,ぶどう,もも,バナナ,りんご";
+const problems = [problem1, problem2, problem3];
+window.onload = function () {
+  console.log(problems);
 
-const problem = {
-  ans: "りんご",
-  sound: "しゃくしゃく",
-  taste: "甘い",
-  smell: "",
+  mouseStalker();
+  setImg();
 };
-
-// window.onload = function () {
-//   /*サーバに情報を取りに行く処理 */
-//   problem["ans"] = "りんご";
-//   problem["sound"] = "しゃくしゃく";
-//   problem["taste"] = "甘い";
-//   problem["smell"] = "";
-// };

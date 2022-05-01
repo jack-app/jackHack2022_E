@@ -11,8 +11,15 @@ const hintText = [
   "視覚を使う(-20pt)",
   "聴覚を使う(-20pt)",
   "味覚・嗅覚を使う(-20pt)",
+  "全て使用済み",
 ];
 const hintKind = ["視覚", "聴覚", "味覚・嗅覚"];
+
+const b1 = document.getElementById("b1");
+const b2 = document.getElementById("b2");
+const b3 = document.getElementById("b3");
+const b4 = document.getElementById("b4");
+const buttons = [b1, b2, b3, b4];
 
 const hintButton = document.getElementById("hint");
 const usedHint = document.getElementById("usedHint");
@@ -39,7 +46,7 @@ function drawHintText(canvasid, text) {
   setInterval(drawScreen, 80);
 }
 
-function useHint(ans) {
+function useHint() {
   var buttonText = hintButton.innerHTML;
   var score = document.getElementById("score");
   var scoreText = score.innerHTML;
@@ -52,12 +59,13 @@ function useHint(ans) {
     hintButton.innerHTML = hintText[1];
     usedHint.innerHTML += ", " + hintKind[0];
   } else if (buttonText === hintText[1]) {
-    drawHintText("canvas1", problem["sound"]);
+    drawHintText("canvas1", "しゃくしゃく");
     hintButton.innerHTML = hintText[2];
     usedHint.innerHTML += ", " + hintKind[1];
   } else if (buttonText === hintText[2]) {
-    drawHintText("canvas2", problem["taste"]);
+    drawHintText("canvas2", "甘い");
     usedHint.innerHTML += ", " + hintKind[2];
-    hintButton.remove();
+    hintButton.innerHTML = hintText[3];
+    hintButton.style.display = "none";
   }
 }

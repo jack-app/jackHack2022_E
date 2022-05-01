@@ -1,12 +1,6 @@
 // 正誤判定する
 // ページごとに正解を決めておいて、それに従って制御する以外なさそう
 
-const b1 = document.getElementById("b1");
-const b2 = document.getElementById("b2");
-const b3 = document.getElementById("b3");
-const b4 = document.getElementById("b4");
-const buttons = [b1, b2, b3, b4];
-
 const correctModal = document.getElementById("correctModal");
 const wrongModal = document.getElementById("wrongModal");
 const correctClose = document.getElementsByClassName("modalClose")[1];
@@ -21,7 +15,7 @@ function judge() {
   var score = document.getElementById("score");
   var scoreText = score.innerHTML;
   var score_num = scoreText.slice(3, -2) - 0;
-  if (this.name === problem["ans"]) {
+  if (this.name === "りんご") {
     correctModal.style.display = "block";
     var plusScore = document.getElementById("correct");
     if (score_num >= 0) {
@@ -29,6 +23,11 @@ function judge() {
     } else {
       plusScore.innerHTML = "正解！" + score_num.toString() + "pt";
     }
+    var pnum = localStorage.getItem("problem");
+    localStorage.setItem("score" + pnum, score_num);
+    console.log(localStorage.getItem("score" + pnum));
+    localStorage.setItem("problem", parseInt(pnum) + 1);
+    console.log(localStorage.getItem("problem"));
   } else {
     wrongModal.style.display = "block";
     score_num -= 40;
