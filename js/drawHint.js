@@ -58,6 +58,15 @@ function useHint(ans) {
   } else if (buttonText === hintText[2]) {
     drawHintText("canvas2", problem["taste"]);
     usedHint.innerHTML += ", " + hintKind[2];
-    hintButton.remove();
+    hintButton.style.display = "none";
+  }
+}
+
+function got_vis() {
+  var buttonText = hintButton.innerHTML;
+  if (buttonText === hintText[0]) {
+    return false;
+  } else {
+    return true;
   }
 }
