@@ -1,7 +1,8 @@
-.logo {
-  /* display: flex;
-  justify-content: center; */
-}
+/* .logo {
+  display: flex;
+  justify-content: center;
+} */
+
 .logo > img {
   height: 50vh;
 }

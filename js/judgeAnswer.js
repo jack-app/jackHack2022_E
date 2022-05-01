@@ -28,6 +28,7 @@ b4.addEventListener("click", { name: b4.innerHTML, handleEvent: judge });
 function judge() {
   if (this.name === problem["ans"]) {
     correctModal.style.display = "block";
+    scoreNum = parseInt(scoreNum);
     scoreNum += 100;
     localStorage.setItem("totalScoreNum", scoreNum);
   } else {
