@@ -13,8 +13,8 @@ const problems = [
     options: ["きりん", "もも", "バナナ", "ぶどう"],
     sound: "モォー",
     taste: "",
-    binarizationImage: "src/apple2ch.png",
-    image: "src/apple.png",
+    binarizationImage: "src/kirinpicture2ch.png",
+    image: "src/kirinpicture.png",
   },
 ];
 console.log(problems.length);
@@ -40,6 +40,13 @@ b1.innerHTML = shuffledOptions[0].toString();
 b2.innerHTML = shuffledOptions[1].toString();
 b3.innerHTML = shuffledOptions[2].toString();
 b4.innerHTML = shuffledOptions[3].toString();
+
+const correctImg = document.getElementById("correctImage");
+var newImg = document.createElement("img");
+newImg.src = problem.image;
+newImg.alt = '正解画像';
+newImg.height = 200;
+correctImg.appendChild(newImg);
 
 window.onload = function () {
   mouseStalker();
