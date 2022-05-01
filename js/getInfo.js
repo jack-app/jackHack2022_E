@@ -8,4 +8,5 @@ window.onload = function () {
 
   mouseStalker();
   setImg();
+  setOriImg();
 };

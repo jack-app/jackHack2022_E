@@ -1,4 +1,4 @@
-#stalker {
+.stalker {
   pointer-events: none;
   position: fixed;
   border-radius: 50%;
@@ -10,8 +10,4 @@
   left: -8px  ;    /*座標調節（カーソル位置と円の中心を合わせる）*/
   width: 16px  ;   /*マウスストーカーの直径*/
   height: 16px ;  /*マウスストーカーの直径*/
-}
-
-.touch{
-  background: rgba(255, 0, 0, 0.726) !important;
 }
