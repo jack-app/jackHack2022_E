@@ -7,10 +7,7 @@ const problem = {
   smell: "",
 };
 
-// window.onload = function () {
-//   /*サーバに情報を取りに行く処理 */
-//   problem["ans"] = "りんご";
-//   problem["sound"] = "しゃくしゃく";
-//   problem["taste"] = "甘い";
-//   problem["smell"] = "";
-// };
+window.onload = function () {
+  mouseStalker();
+  setImg();
+};

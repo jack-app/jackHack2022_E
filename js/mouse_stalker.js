@@ -1,8 +1,3 @@
-onload = function () {
-  mouseStalker();
-  setImg();
-};
-
 //stokerの位置更新
 function mouseStalker() {
   const stalker = document.getElementById("stalker");

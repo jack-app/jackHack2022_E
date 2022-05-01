@@ -15,7 +15,7 @@ var score = document.getElementById("score");
 
 // 得点初期化
 let scoreNum = localStorage.getItem("scoreNum");
-scoreNum = scoreNum ? scoreNum : 0;
+scoreNum = scoreNum ? scoreNum : 100;
 localStorage.setItem("scoreNum", scoreNum);
 score.innerHTML = scoreNum.toString();
 
@@ -28,7 +28,6 @@ b4.addEventListener("click", { name: b4.innerHTML, handleEvent: judge });
 function judge() {
   if (this.name === problem["ans"]) {
     correctModal.style.display = "block";
-    scoreNum += 100;
     localStorage.setItem("totalScoreNum", scoreNum);
   } else {
     wrongModal.style.display = "block";
